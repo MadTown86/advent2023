@@ -31,23 +31,23 @@ def countNum(line):
 
     while x < len(line):
         if line[x] in numbs:
-            y = x
-            while y < len(line) and line[y] in numbs:
-                y += 1
-            if y == len(line)-1:
-                location_array[x] = line[x:].strip()
-            else:
-                location_array[x] = line[x:y]
-            x = y
-        else:
-            x += 1
-
-    return int(max(location_array.items()[1])) + int(min(location_array.items()[1]))
+            # y = x
+            # while y < len(line) and line[y] in numbs:
+            #     y += 1
+            # if y == len(line)-1:
+            #     location_array[x] = line[x:].strip()
+            # else:
+            location_array[x] = line[x]
+        # else:
+        x += 1
+    # location_array[min(location_array.keys())] + location_array[max(location_array.keys())]
+    return sorted(location_array.items())
 
 def main():
+    res = 0
     with open('input1.txt', 'r') as f:
         lines = f.readlines()
-        for line in range(0, 10, 1):
+        for line in range(21):
             print(countNum(lines[line]))
 
 main()
